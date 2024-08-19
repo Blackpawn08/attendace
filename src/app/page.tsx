@@ -49,14 +49,14 @@ export default function Home() {
         </div>
       </div>
       <div className="md:flex md:mt-36 mt-16 justify-between items-center md:w-full relative ">
-        <div className="md:w-2/5 flex justify-center p-2">
+        <div className="md:w-2/5 flex justify-center p-2 relative z-10">
           <Image
             className="md:h-72 md:w-72 h-40 w-40 object-contain"
             src={qr}
             alt="qr-code"
           />
         </div>
-        <div className="w-full p-3">
+        <div className="w-full p-3 relative z-10">
           <table
             className="min-w-full border-collapse border border-gray-200 rounded-lg overflow-hidden"
             style={{ backgroundColor: "#134B70" }}
@@ -135,8 +135,12 @@ export default function Home() {
           </table>
         </div>
       </div>{" "}
-      <div className="relative">
-        <Image src={foot} alt="foot" className="md:h-20 object-cover" />
+      <div className="relative z-0">
+        <Image
+          src={foot}
+          alt="foot"
+          className="md:h-20 object-cover overflow-visible relative z-0 "
+        />
       </div>
     </main>
   );
