@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import profile from "../../assets/profile.png"; // Ensure proper path
 import qr from "../../assets/qr.png"; // Ensure proper path
 import link from "../../assets/link.png";
 import foot from "../../assets/footer.png";
-import { FcApproval } from "react-icons/fc";
+import { Html5QrcodeScanner } from "html5-qrcode";
 
 export default function Home() {
   // Initialize state for each row
@@ -15,6 +15,29 @@ export default function Home() {
     row3: false,
     row4: false,
   });
+
+  const [scanResult, setScanResult] = useState(null);
+
+  useEffect(() => {
+    const scanner = new Html5QrcodeScanner("reader", {
+      qrbox: {
+        width: 250,
+        height: 250,
+      },
+      fps: 5,
+    });
+
+    scanner.render(success, error);
+
+    function success(result) {
+      scanner.clear();
+      setScanResult(result);
+    }
+
+    function error(err) {
+      console.warn(err);
+    }
+  }, []);
 
   return (
     <main className="relative min-h-screen flex flex-col justify-between">
