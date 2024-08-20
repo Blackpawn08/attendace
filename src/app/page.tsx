@@ -1,29 +1,47 @@
-"use client";
-import React, { useState } from "react";
+"use client";  // Ensure this component is treated as client-side
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Image from "next/image";
-import profile from "../assets/profile.png"; // Ensure proper path
-import qr from "../assets/qr.png"; // Ensure proper path
+import profile from "../assets/profile.png";
+import qr from "../assets/qr.png";
 import link from "../assets/link.png";
 import foot from "../assets/footer.png";
 import { FcApproval } from "react-icons/fc";
 
 export default function Home() {
-  // Initialize state for each row
-  const [approvedRows, setApprovedRows] = useState({
-    row1: false,
-    row2: false,
-    row3: false,
-    row4: false,
-  });
+  const [user, setUser] = useState(null);
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    const fetchUserAndData = async () => {
+      const storedUser = localStorage.getItem('user');
+      if (storedUser) {
+        const user = JSON.parse(storedUser);
+        setUser(user);
+  
+        try {
+          const response = await axios.get('http://192.168.28.63:5000/api/fetch/user', {
+            params: {
+              id: user._id,
+            },
+          });
+  
+          if (response.status === 200) {
+            setData(response.data.data); // Assuming the API returns the data directly
+          } else {
+            console.error('Failed to fetch data');
+          }
+        } catch (error) {
+          console.error('Error fetching data:', error.message);
+        }
+      } else {
+        console.log('No user data found in localStorage');
+      }
+    };
+  
+    fetchUserAndData();
+  }, [data]); // Dependency on `user` to refetch when it changes
+  
 
-  const handleClick = (e, rowKey) => {
-    e.preventDefault(); // Prevent immediate navigation
-    setApprovedRows((prevState) => ({
-      ...prevState,
-      [rowKey]: true, // Mark the clicked row as approved
-    }));
-    window.open(e.currentTarget.href, "_blank"); // Open link in new tab
-  };
 
   return (
     <main className="relative min-h-screen flex flex-col justify-between">
@@ -31,8 +49,8 @@ export default function Home() {
         className="h-48 w-full rounded-b-3xl"
         style={{
           backgroundColor: "white",
-          backgroundImage: `url(${link.src})`, // Set background image
-          backgroundSize: "cover", // Make the image cover the div
+          backgroundImage: `url(${link.src})`,
+          backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: "revert",
         }}
@@ -44,8 +62,8 @@ export default function Home() {
             alt="profile"
           />
           <h1 className="md:text-4xl text-2xl font-bold text-blue-900 md:text-black bg-slate-50 md:bg-transparent  bg-opacity-50 backdrop-blur-sm rounded-xl">
-            Kyle Corpuz
-          </h1>
+          {data?.name}
+            </h1>
         </div>
       </div>
       <div className="md:flex md:mt-36 mt-16 justify-between items-center md:w-full relative ">
@@ -77,13 +95,13 @@ export default function Home() {
                   <a
                     href="https://esl-games-demo.retsol.ph/basketball/user-form"
                     className="text-black hover:text-blue-800"
-                    onClick={(e) => handleClick(e, "row1")} // Specific row key
+                  
                   >
                     Rexona Basketball
                   </a>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {approvedRows.row1 && <FcApproval className="w-8 h-8" />}
+                {data?.station1 ? "yes" : "no"}
                 </td>
               </tr>
 
@@ -92,13 +110,13 @@ export default function Home() {
                   <a
                     href="https://microsite-git-init-demo-renzoralphpua.vercel.app/microsite/videoplayer/sunsilk"
                     className="text-black hover:text-blue-800"
-                    onClick={(e) => handleClick(e, "row2")} // Specific row key
+                    
                   >
                     With Sunsilk Commercial
                   </a>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {approvedRows.row2 && <FcApproval className="w-8 h-8" />}
+                {data?.station2 ? "yes" : "no"}
                 </td>
               </tr>
 
@@ -107,13 +125,13 @@ export default function Home() {
                   <a
                     href="https://microsite-git-init-demo-renzoralphpua.vercel.app/microsite/user-form/creamsilk"
                     className="text-black hover:text-blue-800"
-                    onClick={(e) => handleClick(e, "row3")} // Specific row key
+                    
                   >
                     Without Sunsilk Commercial
                   </a>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {approvedRows.row3 && <FcApproval className="w-8 h-8" />}
+                {data?.station3 ? "yes" : "no"}
                 </td>
               </tr>
 
@@ -122,19 +140,19 @@ export default function Home() {
                   <a
                     href="https://feedback-loop-web.vercel.app/login"
                     className="text-black hover:text-blue-800"
-                    onClick={(e) => handleClick(e, "row4")} // Specific row key
+                    
                   >
                     NCCC
                   </a>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {approvedRows.row4 && <FcApproval className="w-8 h-8" />}
+                {data?.station4 ? "yes" : "no"}
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-      </div>{" "}
+      </div>
       <div className="relative z-0">
         <Image
           src={foot}

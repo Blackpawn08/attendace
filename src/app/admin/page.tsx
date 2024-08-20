@@ -5,7 +5,7 @@ import profile from "../../assets/profile.png"; // Ensure proper path
 import qr from "../../assets/qr.png"; // Ensure proper path
 import link from "../../assets/link.png";
 import foot from "../../assets/footer.png";
-import { Html5QrcodeScanner } from "html5-qrcode";
+// import { Html5QrcodeScanner } from "html5-qrcode";
 
 export default function Home() {
   // Initialize state for each row
@@ -16,28 +16,28 @@ export default function Home() {
     row4: false,
   });
 
-  const [scanResult, setScanResult] = useState(null);
+  // const [scanResult, setScanResult] = useState(null);
 
-  useEffect(() => {
-    const scanner = new Html5QrcodeScanner("reader", {
-      qrbox: {
-        width: 250,
-        height: 250,
-      },
-      fps: 5,
-    });
+  // useEffect(() => {
+  //   const scanner = new Html5QrcodeScanner("reader", {
+  //     qrbox: {
+  //       width: 250,
+  //       height: 250,
+  //     },
+  //     fps: 5,
+  //   });
 
-    scanner.render(success, error);
+  //   scanner.render(success, error);
 
-    function success(result) {
-      scanner.clear();
-      setScanResult(result);
-    }
+  //   function success(result) {
+  //     scanner.clear();
+  //     setScanResult(result);
+  //   }
 
-    function error(err) {
-      console.warn(err);
-    }
-  }, []);
+  //   function error(err) {
+  //     console.warn(err);
+  //   }
+  // }, []);
 
   return (
     <main className="relative min-h-screen flex flex-col justify-between">
@@ -52,11 +52,11 @@ export default function Home() {
         }}
       >
         <div className="md:w-2/5 flex justify-center p-5 pt-20 md:pt-4">
-          <Image
+          {/* <Image
             className="md:h-72 md:w-72 h-40 w-40 object-contain"
-            src={qr}
+            // src={qr}
             alt="qr-code"
-          />
+          /> */}
         </div>
       </div>
       <div className="md:flex flex-col  justify-between items-center md:w-full relative pt-14 ">
@@ -68,7 +68,7 @@ export default function Home() {
             <thead className="rounded-2xl overflow-hidden">
               <tr className="text-center">
                 <th className="px-4 py-2 text-white font-semibold md:w-3/12">
-                  Approval
+                  Approvals
                 </th>
                 <th className="px-4 py-2 text-white font-semibold md:w-9/12">
                   Microsites
