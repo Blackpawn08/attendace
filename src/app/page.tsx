@@ -16,13 +16,14 @@ import QRCode from "react-qr-code";
 export default function Home() {
   const [user, setUser] = useState(null);
   const [data, setData] = useState(null);
+  const [qrCodeValue, setQrCodeValue] = useState(null);
   useEffect(() => {
     const fetchUserAndData = async () => {
       const storedUser = localStorage.getItem('user');
       if (storedUser) {
         const user = JSON.parse(storedUser);
         setUser(user);
-  
+        setQrCodeValue(user._id);
         try {
           const response = await axios.get('http://192.168.28.63:5000/api/fetch/user', {
             params: {
@@ -31,7 +32,8 @@ export default function Home() {
           });
   
           if (response.status === 200) {
-            setData(response.data.data); // Assuming the API returns the data directly
+            setData(response.data.data);
+         
           } else {
             console.error('Failed to fetch data');
           }
@@ -44,7 +46,7 @@ export default function Home() {
     };
   
     fetchUserAndData();
-  }, [data]); // Dependency on `user` to refetch when it changes
+  }, []); // Dependency on `user` to refetch when it changes
   
 
 
@@ -87,10 +89,14 @@ export default function Home() {
             alt="qr-code"
           /> */}
 
-          <QRCode
-            value={qrCodeValue}
-            className="md:h-72 md:w-72 h-40 w-40 object-contain shadow-xl"
-          />
+{qrCodeValue && (
+  <QRCode
+    value={qrCodeValue}
+    className="md:h-72 md:w-72 h-40 w-40 object-contain shadow-xl"
+  />
+)}
+
+     
         </div>
         <div className="w-full p-3 relative z-10">
           <table className="min-w-full border-collapse border border-gray-200 rounded-lg overflow-hidden">
