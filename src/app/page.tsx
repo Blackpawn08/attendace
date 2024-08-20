@@ -5,8 +5,13 @@ import Image from "next/image";
 import profile from "../assets/profile.png";
 import qr from "../assets/qr.png";
 import link from "../assets/link.png";
+import flag from "../assets/flag.png";
+import raceback from "../assets/racebackg.png";
+import track from "../assets/racetrack.png";
 import foot from "../assets/footer.png";
 import { FcApproval } from "react-icons/fc";
+import tiremain from "../assets/tiremain.png";
+import QRCode from "react-qr-code";
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -44,23 +49,31 @@ export default function Home() {
 
 
   return (
-    <main className="relative min-h-screen flex flex-col justify-between">
+    <main
+      className="relative min-h-screen flex flex-col justify-between"
+      style={{
+        backgroundImage: `url(${track.src})`, // Set background image
+        backgroundSize: "cover", // Make the image cover the div
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div
         className="h-48 w-full rounded-b-3xl"
         style={{
-          backgroundColor: "white",
-          backgroundImage: `url(${link.src})`,
-          backgroundSize: "cover",
+          // Set background image
+          backgroundSize: "cover", // Make the image cover the div
           backgroundPosition: "center",
-          opacity: "revert",
+          opacity: "95%",
         }}
       >
-        <div className="md:flex-col flex flex-row items-center justify-center gap-4 md:pt-11 pt-28">
+        <div className="md:flex-col flex flex-row items-center justify-center gap-4 md:pt-11 pt-24">
           <Image
-            className="md:h-48 md:w-48 h-32 w-32"
+            className="md:h-48 md:w-48 h-32 w-32 shadow-xl sha"
             src={profile}
             alt="profile"
           />
+
           <h1 className="md:text-4xl text-2xl font-bold text-blue-900 md:text-black bg-slate-50 md:bg-transparent  bg-opacity-50 backdrop-blur-sm rounded-xl">
           {data?.name}
             </h1>
@@ -68,24 +81,29 @@ export default function Home() {
       </div>
       <div className="md:flex md:mt-36 mt-16 justify-between items-center md:w-full relative ">
         <div className="md:w-2/5 flex justify-center p-2 relative z-10">
-          <Image
-            className="md:h-72 md:w-72 h-40 w-40 object-contain"
-            src={qr}
+          {/* <Image
+            className="md:h-72 md:w-72 h-40 w-40 object-contain shadow-xl"
+            src={qrCodeValue}
             alt="qr-code"
+          /> */}
+
+          <QRCode
+            value={qrCodeValue}
+            className="md:h-72 md:w-72 h-40 w-40 object-contain shadow-xl"
           />
         </div>
         <div className="w-full p-3 relative z-10">
-          <table
-            className="min-w-full border-collapse border border-gray-200 rounded-lg overflow-hidden"
-            style={{ backgroundColor: "#134B70" }}
-          >
-            <thead className="rounded-2xl overflow-hidden">
+          <table className="min-w-full border-collapse border border-gray-200 rounded-lg overflow-hidden">
+            <thead
+              className="rounded-2xl overflow-hidden"
+              style={{ backgroundColor: "#134B70" }}
+            >
               <tr className="text-center">
-                <th className="px-4 py-2 text-white font-semibold md:w-9/12">
-                  Microsites
-                </th>
-                <th className="px-4 py-2 text-white font-semibold md:w-3/12">
+                <th className="px-4 py-2 p-2 text-xl text-white font-semibold md:w-3/12">
                   Status
+                </th>{" "}
+                <th className="px-4 py-2 p-2 text-xl  text-white font-semibold md:w-9/12">
+                  Stations
                 </th>
               </tr>
             </thead>
@@ -152,7 +170,8 @@ export default function Home() {
             </tbody>
           </table>
         </div>
-      </div>
+        {/*  <Image src={track} alt="racetrack"></Image> */}
+      </div>{" "}
       <div className="relative z-0">
         <Image
           src={foot}
