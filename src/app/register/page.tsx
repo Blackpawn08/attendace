@@ -128,14 +128,17 @@ export default function Home() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://192.168.28.63:5000/api/insert/user", {
-        name: inputValue,
-      });
+      const response = await axios.post(
+        "http://192.168.8.124:5000/api/insert/user",
+        {
+          name: inputValue,
+        }
+      );
 
       if (response.status === 200) {
         console.log(response.data.message);
-       localStorage.setItem('user', JSON.stringify(response.data.user));
-       router.push("/");
+        localStorage.setItem("user", JSON.stringify(response.data.user));
+        router.push("/");
       } else {
         console.error("Failed to insert user data");
       }
@@ -164,15 +167,12 @@ export default function Home() {
           backgroundPosition: "right",
           backgroundRepeat: "no-repeat",
         }}
-      >
-       
-      </div>
+      ></div>
 
       <div className="w-full flex justify-center items-center absolute md:top-60 top-72 ">
         <form
           /*onSubmit={handleSubmit}*/ className="p-7 text-center rounded-xl shadow-4xl w-96 "
           style={{ backgroundColor: "#134B70" }}
-        
         >
           <label
             htmlFor="simpleInput"
@@ -203,7 +203,6 @@ export default function Home() {
           </button>
         </form>
       </div>
-      
     </main>
   );
 }

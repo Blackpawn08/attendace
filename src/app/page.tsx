@@ -12,6 +12,8 @@ import foot from "../assets/footer.png";
 import { FcApproval } from "react-icons/fc";
 import tiremain from "../assets/tiremain.png";
 import QRCode from "react-qr-code";
+import check from "../assets/check.png";
+import f1 from "../assets/f1.jpg";
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -26,7 +28,7 @@ export default function Home() {
         setQrCodeValue(user._id);
         try {
           const response = await axios.get(
-            "http://192.168.28.63:5000/api/fetch/user",
+            "http://192.168.8.124:5000/api/fetch/user",
             {
               params: {
                 id: user._id,
@@ -54,36 +56,43 @@ export default function Home() {
     <main
       className="relative min-h-screen flex flex-col justify-between"
       style={{
-        backgroundImage: `url(${track.src})`, // Set background image
+        // Set background image
+
         backgroundSize: "cover", // Make the image cover the div
         backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
+        opacity: "95%",
       }}
     >
       <div
         className="h-48 w-full rounded-b-3xl"
         style={{
           // Set background image
+
           backgroundSize: "cover", // Make the image cover the div
           backgroundPosition: "center",
           opacity: "95%",
         }}
       >
         <div
-          className="md:flex-col flex flex-col-reverse items-center justify-center gap-4 md:pt-11 pt-14 bg-blue-600 pb-14 "
+          className="md:flex-col flex flex-col-reverse items-center justify-center gap-4 md:pt-11 pt-14 pb-14 shadow-xl"
           style={{
             borderBottomLeftRadius: "50%",
+            borderBottomRightRadius: "50%",
+            backgroundColor: "#134B70",
+            backgroundImage: `url(${f1})`, // Correct way to set background image
+            backgroundSize: "cover", // Optional: to cover the entire div
+            backgroundPosition: "center", // Optional: center the image
+            backgroundRepeat: "no-repeat",
           }}
         >
           <Image
-            className="md:h-48 md:w-48 h-32 w-32 shadow-xl "
+            className="md:h-48 md:w-48 h-32 w-32 shadow-2xl rounded-full "
             src={profile}
             alt="profile"
           />
 
           <h1 className="md:text-4xl text-2xl font-bold text-white md:text-black  md:bg-transparent  ">
             {data?.name}
-            Kyle Corpuz
           </h1>
         </div>
       </div>
@@ -103,17 +112,17 @@ export default function Home() {
           )}
         </div>
         <div className="w-full p-3 relative z-10">
-          <table className="min-w-full border-collapse border border-gray-200 rounded-lg overflow-hidden">
+          <table className="min-w-full border-collapse border border-gray-200 rounded-lg shadow-xl overflow-hidden">
             <thead
               className="rounded-2xl overflow-hidden"
               style={{ backgroundColor: "#134B70" }}
             >
               <tr className="text-center">
                 <th className="px-4 py-2 p-2 text-xl text-white font-semibold md:w-3/12">
-                  Status
+                  Stations
                 </th>{" "}
                 <th className="px-4 py-2 p-2 text-xl  text-white font-semibold md:w-9/12">
-                  Stations
+                  Status
                 </th>
               </tr>
             </thead>
@@ -122,13 +131,21 @@ export default function Home() {
                 <td className="px-4 py-2 w-9/12">
                   <a
                     href="https://esl-games-demo.retsol.ph/basketball/user-form"
-                    className="text-black hover:text-blue-800"
+                    className="text-black hover:text-blue-800 font-bold"
                   >
-                    Rexona Basketball
+                    FLOOR LAYOUT
                   </a>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {data?.station1 ? "yes" : "no"}
+                  {data?.station1 ? (
+                    <Image
+                      className="md:h-48 md:w-48 h-8 w-8 bg-transparent rounded-full "
+                      src={check}
+                      alt="check"
+                    />
+                  ) : (
+                    <h1 className="h-5 w-5 bg-red-700 hidden rounded-full" />
+                  )}
                 </td>
               </tr>
 
@@ -136,13 +153,21 @@ export default function Home() {
                 <td className="px-4 py-2 w-9/12">
                   <a
                     href="https://microsite-git-init-demo-renzoralphpua.vercel.app/microsite/videoplayer/sunsilk"
-                    className="text-black hover:text-blue-800"
+                    className="text-black hover:text-blue-800 font-bold"
                   >
-                    With Sunsilk Commercial
+                    KRVR + POG
                   </a>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {data?.station2 ? "yes" : "no"}
+                  {data?.station2 ? (
+                    <Image
+                      className="md:h-48 md:w-48 h-8 w-8 bg-transparent rounded-full "
+                      src={check}
+                      alt="check"
+                    />
+                  ) : (
+                    <h1 className="h-5 w-5 bg-red-700 hidden rounded-full" />
+                  )}
                 </td>
               </tr>
 
@@ -150,13 +175,21 @@ export default function Home() {
                 <td className="px-4 py-2 w-9/12">
                   <a
                     href="https://microsite-git-init-demo-renzoralphpua.vercel.app/microsite/user-form/creamsilk"
-                    className="text-black hover:text-blue-800"
+                    className="text-black hover:text-blue-800 font-bold"
                   >
-                    Without Sunsilk Commercial
+                    EVEER DEEN
                   </a>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {data?.station3 ? "yes" : "no"}
+                  {data?.station3 ? (
+                    <Image
+                      className="md:h-48 md:w-48 h-8 w-8 bg-transparent rounded-full "
+                      src={check}
+                      alt="check"
+                    />
+                  ) : (
+                    <h1 className="h-5 w-5 bg-red-700 hidden rounded-full" />
+                  )}
                 </td>
               </tr>
 
@@ -164,16 +197,64 @@ export default function Home() {
                 <td className="px-4 py-2 w-9/12">
                   <a
                     href="https://feedback-loop-web.vercel.app/login"
-                    className="text-black hover:text-blue-800"
+                    className="text-black hover:text-blue-800 font-bold"
                   >
-                    NCCC
+                    WOODY + BUZZ
                   </a>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
                   {data?.station4 ? (
-                    <h1 className="h-5 w-5 bg-green-400 rounded-full" />
+                    <Image
+                      className="md:h-48 md:w-48 h-8 w-8 bg-transparent rounded-full "
+                      src={check}
+                      alt="check"
+                    />
                   ) : (
-                    <h1 className="h-5 w-5 bg-red-700 rounded-full" />
+                    <h1 className="h-5 w-5 bg-red-700 hidden rounded-full" />
+                  )}
+                </td>
+              </tr>
+
+              <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
+                <td className="px-4 py-2 w-9/12">
+                  <a
+                    href="https://feedback-loop-web.vercel.app/login"
+                    className="text-black hover:text-blue-800 font-bold"
+                  >
+                    3MVAS
+                  </a>
+                </td>
+                <td className="px-4 py-2 w-full flex justify-center items-center">
+                  {data?.station5 ? (
+                    <Image
+                      className="md:h-48 md:w-48 h-8 w-8 bg-transparent rounded-full "
+                      src={check}
+                      alt="check"
+                    />
+                  ) : (
+                    <h1 className="h-5 w-5 bg-red-700 hidden rounded-full" />
+                  )}
+                </td>
+              </tr>
+
+              <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
+                <td className="px-4 py-2 w-9/12">
+                  <a
+                    href="https://feedback-loop-web.vercel.app/login"
+                    className="text-black hover:text-blue-800 font-bold"
+                  >
+                    STORE X
+                  </a>
+                </td>
+                <td className="px-4 py-2 w-full flex justify-center items-center">
+                  {data?.station6 ? (
+                    <Image
+                      className="md:h-48 md:w-48 h-8 w-8 bg-transparent rounded-full "
+                      src={check}
+                      alt="check"
+                    />
+                  ) : (
+                    <h1 className="h-5 w-5 bg-red-700 hidden rounded-full" />
                   )}
                 </td>
               </tr>
