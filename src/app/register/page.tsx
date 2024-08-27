@@ -129,7 +129,7 @@ export default function Home() {
 
     try {
       const response = await axios.post(
-        "http://192.168.1.5:5000/api/insert/user",
+        "https://node-mongodb-api-three.vercel.app/api/insert/user",
         {
           name: inputValue,
         }

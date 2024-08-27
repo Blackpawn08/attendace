@@ -30,7 +30,7 @@ export default function Home() {
         setQrCodeValue(user._id);
         try {
           const response = await axios.get(
-            "http://192.168.1.5:5000/api/fetch/user",
+            "https://node-mongodb-api-three.vercel.app/api/fetch/user",
             {
               params: {
                 id: user._id,
