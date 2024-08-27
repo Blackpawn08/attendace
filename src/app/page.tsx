@@ -52,8 +52,9 @@ export default function Home() {
         router.push("/register");
       }
 
-      if(!user.name){
+      if(user.name === undefined || null){
         router.push("/register");
+        
       }
     };
 
