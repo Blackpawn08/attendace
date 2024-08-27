@@ -106,7 +106,7 @@
 //   );
 // }
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import Image from "next/image";
@@ -123,7 +123,15 @@ import tirebackg from "../../assets/tirebackg.png";
 export default function Home() {
   const [inputValue, setInputValue] = useState("");
   const router = useRouter(); // Initialize the router
+  
 
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+
+    if (storedUser) {
+      router.push("/"); // Redirect to the registration page
+    }
+  }, [router]);
   const test = async (e) => {
     e.preventDefault();
 

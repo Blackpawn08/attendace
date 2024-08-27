@@ -1,6 +1,6 @@
 "use client"; // Ensure this component is treated as client-side
 import React, { useState, useEffect } from "react";
-
+import { useRouter } from "next/navigation";
 import axios from "axios";
 import Image from "next/image";
 import profile from "../assets/profile.png";
@@ -17,6 +17,7 @@ import check from "../assets/check.png";
 import f2 from "../assets/f3.jpg";
 
 export default function Home() {
+  const router = useRouter();
   const [user, setUser] = useState(null);
   const [data, setData] = useState(null);
   const [qrCodeValue, setQrCodeValue] = useState(null);
@@ -47,18 +48,20 @@ export default function Home() {
           console.error("Error fetching data:", error.message);
         }
       } else {
-        console.log("No user data found in localStorage");
+        // Redirect to register if no user is found
+        router.push("/register");
       }
     };
 
     const intervalId = setInterval(() => {
+      fetchUserAndData();
       fetchUserAndData();
       console.log("Interval running every 5 seconds");
     }, 5000);
 
     // Cleanup interval when the component unmounts
     return () => clearInterval(intervalId);
-  }, []); // Dependency on `user` to refetch when it changes
+  }, [router]); // Dependency on `router` to refetch when it changes
 
   return (
     <main
