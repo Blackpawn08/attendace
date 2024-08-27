@@ -52,6 +52,13 @@ export default function Home() {
     };
 
     fetchUserAndData();
+
+    const intervalId = setInterval(() => {
+      console.log("Interval running every 5 seconds");
+    }, 5000);
+
+    // Cleanup interval when the component unmounts
+    return () => clearInterval(intervalId);
   }, []); // Dependency on `user` to refetch when it changes
 
   return (
