@@ -1,6 +1,6 @@
 "use client"; // Ensure this component is treated as client-side
 import React, { useState, useEffect } from "react";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 import axios from "axios";
 import Image from "next/image";
 import profile from "../assets/profile.png";
@@ -21,7 +21,6 @@ export default function Home() {
   const [user, setUser] = useState(null);
   const [data, setData] = useState(null);
   const [qrCodeValue, setQrCodeValue] = useState(null);
- 
 
   useEffect(() => {
     const fetchUserAndData = async () => {
@@ -56,6 +55,8 @@ export default function Home() {
 
     const intervalId = setInterval(() => {
       fetchUserAndData();
+      fetchUserAndData();
+      console.log("Interval running every 5 seconds");
     }, 5000);
 
     // Cleanup interval when the component unmounts
@@ -64,7 +65,7 @@ export default function Home() {
 
   return (
     <main
-      className="relative min-h-screen flex flex-col h-screen overflow-hidden "
+      className="relative max-h-screen flex flex-col  "
       style={{
         // Set background image
 
@@ -254,9 +255,9 @@ export default function Home() {
         </div>
         {/*  <Image src={track} alt="racetrack"></Image> */}
       </div>{" "}
-      <div className="relative z-0">
+      {/* <div className="relative z-0">
         <Image src={foot} alt="foot" className=" object-cover  relative z-0 " />
-      </div>
+      </div> */}
     </main>
   );
 }
