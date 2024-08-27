@@ -149,7 +149,7 @@ export default function Home() {
 
   return (
     <main
-      className="relative min-h-screen flex flex-col "
+      className="relative min-h-screen flex flex-col  "
       style={{
         backgroundImage: `url(${tirebackg.src})`, // Set background image
         backgroundSize: "cover", // Make the image cover the div

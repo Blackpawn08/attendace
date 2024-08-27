@@ -51,9 +51,8 @@ export default function Home() {
       }
     };
 
-    fetchUserAndData();
-
     const intervalId = setInterval(() => {
+      fetchUserAndData();
       console.log("Interval running every 5 seconds");
     }, 5000);
 
@@ -63,7 +62,7 @@ export default function Home() {
 
   return (
     <main
-      className="relative min-h-screen flex flex-col h-screen overflow-hidden "
+      className="relative max-h-screen flex flex-col  "
       style={{
         // Set background image
 
@@ -253,9 +252,9 @@ export default function Home() {
         </div>
         {/*  <Image src={track} alt="racetrack"></Image> */}
       </div>{" "}
-      <div className="relative z-0">
+      {/* <div className="relative z-0">
         <Image src={foot} alt="foot" className=" object-cover  relative z-0 " />
-      </div>
+      </div> */}
     </main>
   );
 }
