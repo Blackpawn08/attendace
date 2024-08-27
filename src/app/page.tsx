@@ -51,6 +51,10 @@ export default function Home() {
         // Redirect to register if no user is found
         router.push("/register");
       }
+
+      if(!user.name){
+        router.push("/register");
+      }
     };
 
     const intervalId = setInterval(() => {
