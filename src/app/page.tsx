@@ -1,5 +1,6 @@
 "use client"; // Ensure this component is treated as client-side
 import React, { useState, useEffect } from "react";
+
 import axios from "axios";
 import Image from "next/image";
 import profile from "../assets/profile.png";
@@ -8,17 +9,18 @@ import link from "../assets/link.png";
 import flag from "../assets/flag.png";
 import raceback from "../assets/racebackg.png";
 import track from "../assets/racetrack.png";
-import foot from "../assets/footer.png";
+import foot from "../assets/foot.png";
 import { FcApproval } from "react-icons/fc";
 import tiremain from "../assets/tiremain.png";
 import QRCode from "react-qr-code";
 import check from "../assets/check.png";
-import f1 from "../assets/f1.jpg";
+import f2 from "../assets/f3.jpg";
 
 export default function Home() {
   const [user, setUser] = useState(null);
   const [data, setData] = useState(null);
   const [qrCodeValue, setQrCodeValue] = useState(null);
+
   useEffect(() => {
     const fetchUserAndData = async () => {
       const storedUser = localStorage.getItem("user");
@@ -28,7 +30,7 @@ export default function Home() {
         setQrCodeValue(user._id);
         try {
           const response = await axios.get(
-            "http://192.168.8.124:5000/api/fetch/user",
+            "http://192.168.1.5:5000/api/fetch/user",
             {
               params: {
                 id: user._id,
@@ -54,7 +56,7 @@ export default function Home() {
 
   return (
     <main
-      className="relative min-h-screen flex flex-col justify-between"
+      className="relative min-h-screen flex flex-col h-screen overflow-hidden "
       style={{
         // Set background image
 
@@ -64,12 +66,11 @@ export default function Home() {
       }}
     >
       <div
-        className="h-48 w-full rounded-b-3xl"
+        className="h-48 w-full rounded-b-3xl relative"
         style={{
-          // Set background image
-
-          backgroundSize: "cover", // Make the image cover the div
+          backgroundSize: "cover", // or 'contain', depending on your needs
           backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
           opacity: "95%",
         }}
       >
@@ -79,7 +80,7 @@ export default function Home() {
             borderBottomLeftRadius: "50%",
             borderBottomRightRadius: "50%",
             backgroundColor: "#134B70",
-            backgroundImage: `url(${f1})`, // Correct way to set background image
+            backgroundImage: `url(${f2.src})`, // Correct way to set background image
             backgroundSize: "cover", // Optional: to cover the entire div
             backgroundPosition: "center", // Optional: center the image
             backgroundRepeat: "no-repeat",
@@ -91,7 +92,7 @@ export default function Home() {
             alt="profile"
           />
 
-          <h1 className="md:text-4xl text-2xl font-bold text-white md:text-black  md:bg-transparent  ">
+          <h1 className="md:text-4xl text-2xl font-bold text-white  md:bg-transparent  ">
             {data?.name}
           </h1>
         </div>
@@ -111,7 +112,7 @@ export default function Home() {
             />
           )}
         </div>
-        <div className="w-full p-3 relative z-10">
+        <div className="w-full p-10 relative z-10 ">
           <table className="min-w-full border-collapse border border-gray-200 rounded-lg shadow-xl overflow-hidden">
             <thead
               className="rounded-2xl overflow-hidden"
@@ -129,17 +130,14 @@ export default function Home() {
             <tbody className="text-center" style={{ color: "#134B70" }}>
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12">
-                  <a
-                    href="https://esl-games-demo.retsol.ph/basketball/user-form"
-                    className="text-black hover:text-blue-800 font-bold"
-                  >
+                  <h1 className="text-black hover:text-blue-800 font-bold">
                     FLOOR LAYOUT
-                  </a>
+                  </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
                   {data?.station1 ? (
                     <Image
-                      className="md:h-48 md:w-48 h-8 w-8 bg-transparent rounded-full "
+                      className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
                       src={check}
                       alt="check"
                     />
@@ -151,17 +149,14 @@ export default function Home() {
 
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12">
-                  <a
-                    href="https://microsite-git-init-demo-renzoralphpua.vercel.app/microsite/videoplayer/sunsilk"
-                    className="text-black hover:text-blue-800 font-bold"
-                  >
+                  <h1 className="text-black hover:text-blue-800 font-bold">
                     KRVR + POG
-                  </a>
+                  </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
                   {data?.station2 ? (
                     <Image
-                      className="md:h-48 md:w-48 h-8 w-8 bg-transparent rounded-full "
+                      className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
                       src={check}
                       alt="check"
                     />
@@ -173,17 +168,14 @@ export default function Home() {
 
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12">
-                  <a
-                    href="https://microsite-git-init-demo-renzoralphpua.vercel.app/microsite/user-form/creamsilk"
-                    className="text-black hover:text-blue-800 font-bold"
-                  >
+                  <h1 className="text-black hover:text-blue-800 font-bold">
                     EVEER DEEN
-                  </a>
+                  </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
                   {data?.station3 ? (
                     <Image
-                      className="md:h-48 md:w-48 h-8 w-8 bg-transparent rounded-full "
+                      className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
                       src={check}
                       alt="check"
                     />
@@ -195,17 +187,14 @@ export default function Home() {
 
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12">
-                  <a
-                    href="https://feedback-loop-web.vercel.app/login"
-                    className="text-black hover:text-blue-800 font-bold"
-                  >
+                  <h1 className="text-black hover:text-blue-800 font-bold">
                     WOODY + BUZZ
-                  </a>
+                  </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
                   {data?.station4 ? (
                     <Image
-                      className="md:h-48 md:w-48 h-8 w-8 bg-transparent rounded-full "
+                      className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
                       src={check}
                       alt="check"
                     />
@@ -217,17 +206,14 @@ export default function Home() {
 
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12">
-                  <a
-                    href="https://feedback-loop-web.vercel.app/login"
-                    className="text-black hover:text-blue-800 font-bold"
-                  >
+                  <h1 className="text-black hover:text-blue-800 font-bold">
                     3MVAS
-                  </a>
+                  </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
                   {data?.station5 ? (
                     <Image
-                      className="md:h-48 md:w-48 h-8 w-8 bg-transparent rounded-full "
+                      className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
                       src={check}
                       alt="check"
                     />
@@ -239,17 +225,14 @@ export default function Home() {
 
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12">
-                  <a
-                    href="https://feedback-loop-web.vercel.app/login"
-                    className="text-black hover:text-blue-800 font-bold"
-                  >
+                  <h1 className="text-black hover:text-blue-800 font-bold">
                     STORE X
-                  </a>
+                  </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
                   {data?.station6 ? (
                     <Image
-                      className="md:h-48 md:w-48 h-8 w-8 bg-transparent rounded-full "
+                      className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
                       src={check}
                       alt="check"
                     />
@@ -264,11 +247,7 @@ export default function Home() {
         {/*  <Image src={track} alt="racetrack"></Image> */}
       </div>{" "}
       <div className="relative z-0">
-        <Image
-          src={foot}
-          alt="foot"
-          className="md:h-20 object-cover overflow-visible relative z-0 "
-        />
+        <Image src={foot} alt="foot" className=" object-cover  relative z-0 " />
       </div>
     </main>
   );

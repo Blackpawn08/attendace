@@ -129,7 +129,7 @@ export default function Home() {
 
     try {
       const response = await axios.post(
-        "http://192.168.8.124:5000/api/insert/user",
+        "http://192.168.1.5:5000/api/insert/user",
         {
           name: inputValue,
         }
@@ -169,7 +169,7 @@ export default function Home() {
         }}
       ></div>
 
-      <div className="w-full flex justify-center items-center absolute md:top-60 top-72 ">
+      <div className="w-full flex justify-center items-center absolute md:top-60 top-72 p-6">
         <form
           /*onSubmit={handleSubmit}*/ className="p-7 text-center rounded-xl shadow-4xl w-96 "
           style={{ backgroundColor: "#134B70" }}
