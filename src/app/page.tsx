@@ -26,13 +26,6 @@ export default function Home() {
   useEffect(() => {
     const fetchUserAndData = async () => {
       const storedUser = localStorage.getItem("user");
-      if (!user?.name) {
-        // Clear localStorage
-        localStorage.clear();
-    
-        // Navigate to the register page
-        window.location.href = "/register";
-      }
       if (storedUser) {
         const user = JSON.parse(storedUser);
         setUser(user);
@@ -56,7 +49,7 @@ export default function Home() {
           console.error("Error fetching data:", error.message);
         }
       } else {
-        // Redirect to register if no user is found
+        localStorage.clear();
         router.push("/register");
       }
 
