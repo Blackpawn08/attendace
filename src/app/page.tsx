@@ -15,6 +15,7 @@ import tiremain from "../assets/tiremain.png";
 import QRCode from "react-qr-code";
 import check from "../assets/check.png";
 import f2 from "../assets/f3.jpg";
+import { isNull } from "util";
 
 export default function Home() {
   const router = useRouter();
@@ -25,6 +26,13 @@ export default function Home() {
   useEffect(() => {
     const fetchUserAndData = async () => {
       const storedUser = localStorage.getItem("user");
+      if (!user?.name) {
+        // Clear localStorage
+        localStorage.clear();
+    
+        // Navigate to the register page
+        window.location.href = "/register";
+      }
       if (storedUser) {
         const user = JSON.parse(storedUser);
         setUser(user);
@@ -52,10 +60,6 @@ export default function Home() {
         router.push("/register");
       }
 
-      if(user.name === undefined || null){
-        router.push("/register");
-        
-      }
     };
 
     const intervalId = setInterval(() => {
