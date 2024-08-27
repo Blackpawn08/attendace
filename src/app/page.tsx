@@ -143,7 +143,7 @@ export default function Home() {
                   </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {data?.station1 ? (
+                  {data?.station1.status == "scanned" ? (
                     <Image
                       className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
                       src={check}
@@ -162,7 +162,7 @@ export default function Home() {
                   </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {data?.station2 ? (
+                  {data?.station2.status == "scanned" ? (
                     <Image
                       className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
                       src={check}
@@ -181,7 +181,7 @@ export default function Home() {
                   </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {data?.station3 ? (
+                  {data?.station3.status == "scanned" ? (
                     <Image
                       className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
                       src={check}
@@ -200,7 +200,7 @@ export default function Home() {
                   </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {data?.station4 ? (
+                  {data?.station4.status == "scanned" ? (
                     <Image
                       className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
                       src={check}
@@ -219,7 +219,7 @@ export default function Home() {
                   </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {data?.station5 ? (
+                  {data?.station5.status == "scanned" ? (
                     <Image
                       className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
                       src={check}
@@ -238,7 +238,7 @@ export default function Home() {
                   </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {data?.station6 ? (
+                  {data?.station6.status == "scanned" ? (
                     <Image
                       className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
                       src={check}
