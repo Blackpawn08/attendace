@@ -123,7 +123,6 @@ import tirebackg from "../../assets/tirebackg.png";
 export default function Home() {
   const [inputValue, setInputValue] = useState("");
   const router = useRouter(); // Initialize the router
-  
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -188,18 +187,32 @@ export default function Home() {
           >
             Enter your Name
           </label>
-          <input
-            type="text"
-            id="simpleInput"
-            className="border border-gray-300 p-2 rounded mb-4 w-full shadow-lg "
-            value={inputValue}
-            /*  onChange={(e) => {
+          <div className="flex gap-3">
+            <input
+              type="text"
+              id="simpleInput"
+              className="border border-gray-300 p-2 rounded mb-4 w-full shadow-lg "
+              value={inputValue}
+              /*  onChange={(e) => {
               setQrCodeValue(e.target.value);
             }}
             placeholder="Type here..." */
-            onChange={(e) => setInputValue(e.target.value.toUpperCase())}
-            placeholder="Type here..."
-          />
+              onChange={(e) => setInputValue(e.target.value.toUpperCase())}
+              placeholder="First Name"
+            />
+            <input
+              type="text"
+              id="simpleInput"
+              className="border border-gray-300 p-2 rounded mb-4 w-full shadow-lg "
+              value={inputValue}
+              /*  onChange={(e) => {
+              setQrCodeValue(e.target.value);
+            }}
+            placeholder="Type here..." */
+              onChange={(e) => setInputValue(e.target.value.toUpperCase())}
+              placeholder="Last Name"
+            />
+          </div>
 
           <button
             type="submit"
