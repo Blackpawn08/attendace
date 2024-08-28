@@ -135,6 +135,8 @@ export default function Home() {
   const test = async (e) => {
     e.preventDefault();
 
+    setfirstname(e.target.value.trim());
+
     try {
       const response = await axios.post(
         "https://node-mongodb-api-three.vercel.app/api/insert/user",
@@ -199,7 +201,7 @@ export default function Home() {
               setQrCodeValue(e.target.value);
             }}
             placeholder="Type here..." */
-            onChange={(e) => setfirstname(e.target.value.trim().toUpperCase())}
+            onChange={(e) => setfirstname(e.target.value.toUpperCase())}
             placeholder="First Name"
           />
           <input
@@ -211,7 +213,7 @@ export default function Home() {
               setQrCodeValue(e.target.value);
             }}
             placeholder="Type here..." */
-            onChange={(e) => setlastname(e.target.value.trim().toUpperCase())}
+            onChange={(e) => setlastname(e.target.value.toUpperCase())}
             placeholder="Last Name"
           />
 
