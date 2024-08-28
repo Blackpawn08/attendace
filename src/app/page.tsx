@@ -51,9 +51,13 @@ export default function Home() {
           if (response.status === 200) {
             setData(response.data.data);
           } else {
+            localStorage.clear();
+        router.push("/register");    
             console.error("Failed to fetch data");
           }
         } catch (error) {
+          localStorage.clear();
+        router.push("/register");
           console.error("Error fetching data:", error.message);
         }
       }
