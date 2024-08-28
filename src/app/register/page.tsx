@@ -121,7 +121,8 @@ import tirebackg from "../../assets/tirebackg.png";
 // import QRCode from "react-qr-code";
 
 export default function Home() {
-  const [inputValue, setInputValue] = useState("");
+  const [firstname, setfirstname] = useState("");
+  const [lastname, setlastname] = useState("");
   const router = useRouter(); // Initialize the router
 
   useEffect(() => {
@@ -138,7 +139,8 @@ export default function Home() {
       const response = await axios.post(
         "https://node-mongodb-api-three.vercel.app/api/insert/user",
         {
-          name: inputValue,
+          firstname: firstname,
+          lastname: lastname,
         }
       );
 
@@ -192,24 +194,24 @@ export default function Home() {
               type="text"
               id="simpleInput"
               className="border border-gray-300 p-2 rounded mb-4 w-full shadow-lg "
-              value={inputValue}
+              value={firstname}
               /*  onChange={(e) => {
               setQrCodeValue(e.target.value);
             }}
             placeholder="Type here..." */
-              onChange={(e) => setInputValue(e.target.value.toUpperCase())}
+              onChange={(e) => setfirstname(e.target.value.toUpperCase())}
               placeholder="First Name"
             />
             <input
               type="text"
               id="simpleInput"
               className="border border-gray-300 p-2 rounded mb-4 w-full shadow-lg "
-              value={inputValue}
+              value={lastname}
               /*  onChange={(e) => {
               setQrCodeValue(e.target.value);
             }}
             placeholder="Type here..." */
-              onChange={(e) => setInputValue(e.target.value.toUpperCase())}
+              onChange={(e) => setlastname(e.target.value.toUpperCase())}
               placeholder="Last Name"
             />
           </div>
