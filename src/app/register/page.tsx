@@ -199,7 +199,7 @@ export default function Home() {
               setQrCodeValue(e.target.value);
             }}
             placeholder="Type here..." */
-            onChange={(e) => setfirstname(e.target.value.toUpperCase())}
+            onChange={(e) => setfirstname(e.target.value.trim().toUpperCase())}
             placeholder="First Name"
           />
           <input
@@ -211,7 +211,7 @@ export default function Home() {
               setQrCodeValue(e.target.value);
             }}
             placeholder="Type here..." */
-            onChange={(e) => setlastname(e.target.value.toUpperCase())}
+            onChange={(e) => setlastname(e.target.value.trim().toUpperCase())}
             placeholder="Last Name"
           />
 
