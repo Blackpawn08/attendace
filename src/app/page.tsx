@@ -115,8 +115,7 @@ export default function Home() {
           />
 
           <h1 className="md:text-4xl text-2xl font-bold text-white  md:bg-transparent  ">
-            {data?.firstname}
-            {data?.lastname}
+            {data?.firstname}&nbsp;{data?.lastname}
           </h1>
         </div>
       </div>

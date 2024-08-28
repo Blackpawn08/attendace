@@ -180,8 +180,8 @@ export default function Home() {
 
       <div className="w-full flex justify-center items-center absolute md:top-60 top-72 p-6">
         <form
-          /*onSubmit={handleSubmit}*/ className="p-7 text-center rounded-xl shadow-4xl w-96 "
-          style={{ backgroundColor: "#134B70" }}
+          /*onSubmit={handleSubmit}*/ className="p-7 text-center rounded-xl shadow-4xl w-96  "
+          style={{ backgroundColor: "black" }}
         >
           <label
             htmlFor="simpleInput"
@@ -189,32 +189,31 @@ export default function Home() {
           >
             Enter your Name
           </label>
-          <div className="flex gap-3">
-            <input
-              type="text"
-              id="simpleInput"
-              className="border border-gray-300 p-2 rounded mb-4 w-full shadow-lg "
-              value={firstname}
-              /*  onChange={(e) => {
+
+          <input
+            type="text"
+            id="simpleInput"
+            className="border border-gray-300 p-2 rounded mb-4 w-full shadow-lg "
+            value={firstname}
+            /*  onChange={(e) => {
               setQrCodeValue(e.target.value);
             }}
             placeholder="Type here..." */
-              onChange={(e) => setfirstname(e.target.value.toUpperCase())}
-              placeholder="First Name"
-            />
-            <input
-              type="text"
-              id="simpleInput"
-              className="border border-gray-300 p-2 rounded mb-4 w-full shadow-lg "
-              value={lastname}
-              /*  onChange={(e) => {
+            onChange={(e) => setfirstname(e.target.value.toUpperCase())}
+            placeholder="First Name"
+          />
+          <input
+            type="text"
+            id="simpleInput"
+            className="border border-gray-300 p-2 rounded mb-4 w-full shadow-lg "
+            value={lastname}
+            /*  onChange={(e) => {
               setQrCodeValue(e.target.value);
             }}
             placeholder="Type here..." */
-              onChange={(e) => setlastname(e.target.value.toUpperCase())}
-              placeholder="Last Name"
-            />
-          </div>
+            onChange={(e) => setlastname(e.target.value.toUpperCase())}
+            placeholder="Last Name"
+          />
 
           <button
             type="submit"
