@@ -23,49 +23,47 @@ export default function Home() {
   const [data, setData] = useState(null);
   const [qrCodeValue, setQrCodeValue] = useState(null);
 
-
   useEffect(() => {
     const fetchUserAndData = async () => {
       const storedUser = localStorage.getItem("user");
       if (storedUser) {
         const user = JSON.parse(storedUser);
-       console.log(storedUser);
-       console.log(user);
-        
-          if(user._id === null || undefined){
+        console.log(storedUser);
+        console.log(user);
+
+        if (user._id === null || undefined) {
+          localStorage.clear();
+          router.push("/register");
+        } else {
+          setUser(user);
+          setQrCodeValue(user._id);
+          try {
+            const response = await axios.get(
+              "https://node-mongodb-api-three.vercel.app/api/fetch/user",
+              {
+                params: {
+                  id: user._id,
+                },
+              }
+            );
+
+            if (response.status === 200) {
+              setData(response.data.data);
+            } else {
+              localStorage.clear();
+              router.push("/register");
+              console.error("Failed to fetch data");
+            }
+          } catch (error) {
             localStorage.clear();
             router.push("/register");
-          }else {
-        setUser(user);
-        setQrCodeValue(user._id);
-        try {
-          const response = await axios.get(
-            "https://node-mongodb-api-three.vercel.app/api/fetch/user",
-            {
-              params: {
-                id: user._id,
-              },
-            }
-          );
-
-          if (response.status === 200) {
-            setData(response.data.data);
-          } else {
-            localStorage.clear();
-        router.push("/register");    
-            console.error("Failed to fetch data");
+            console.error("Error fetching data:", error.message);
           }
-        } catch (error) {
-          localStorage.clear();
-        router.push("/register");
-          console.error("Error fetching data:", error.message);
         }
-      }
       } else {
         localStorage.clear();
         router.push("/register");
       }
-
     };
 
     const intervalId = setInterval(() => {
@@ -117,7 +115,8 @@ export default function Home() {
           />
 
           <h1 className="md:text-4xl text-2xl font-bold text-white  md:bg-transparent  ">
-            {data?.name}
+            {data?.firstname}
+            {data?.lastname}
           </h1>
         </div>
       </div>
