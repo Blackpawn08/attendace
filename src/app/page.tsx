@@ -23,16 +23,14 @@ export default function Home() {
   const [data, setData] = useState(null);
   const [qrCodeValue, setQrCodeValue] = useState(null);
 
-  const checkLog = () => {
-      const localData = localStorage.getItem('user');
-  
-  }
 
   useEffect(() => {
     const fetchUserAndData = async () => {
       const storedUser = localStorage.getItem("user");
       if (storedUser) {
         const user = JSON.parse(storedUser);
+        alert(storedUser + user._id);
+        
           if(user._id === null || undefined){
             localStorage.clear();
             router.push("/register");
