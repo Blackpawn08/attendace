@@ -135,14 +135,15 @@ export default function Home() {
   const test = async (e) => {
     e.preventDefault();
 
-    setfirstname(e.target.value.trim());
+    const ftrimed = firstname.trim();
+    const ltrimed = lastname.trim();
 
     try {
       const response = await axios.post(
         "https://node-mongodb-api-three.vercel.app/api/insert/user",
         {
-          firstname: firstname,
-          lastname: lastname,
+          firstname: ftrimed,
+          lastname: ltrimed,
         }
       );
 
