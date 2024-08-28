@@ -29,7 +29,7 @@ export default function Home() {
       const storedUser = localStorage.getItem("user");
       if (storedUser) {
         const user = JSON.parse(storedUser);
-        alert(storedUser + user._id);
+        // alert(storedUser + user._id);
         
           if(user._id === null || undefined){
             localStorage.clear();
