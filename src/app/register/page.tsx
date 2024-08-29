@@ -7,10 +7,8 @@ import flag from "../../assets/flag.png";
 import tirebackg from "../../assets/tirebackg.png";
 
 export default function Home() {
-  const [userData, setUserData] = useState({
-    firstname: "",
-    lastname: "",
-  });
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
   const router = useRouter();
 
   useEffect(() => {
@@ -20,21 +18,21 @@ export default function Home() {
     }
   }, [router]);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setUserData((prevData) => ({
-      ...prevData,
-      [name]: value.trim().toUpperCase(),
-    }));
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const ftrimed = firstname.trim();
+    const ltrimed = lastname.trim();
+
     try {
       const response = await axios.post(
         "https://node-mongodb-api-three.vercel.app/api/insert/user",
-        userData
+        {
+          firstname: ftrimed,
+          lastname: ltrimed,
+        }
       );
+
       if (response.status === 200) {
         console.log(response.data.message);
         localStorage.setItem("user", JSON.stringify(response.data.user));
@@ -71,18 +69,16 @@ export default function Home() {
 
           <input
             type="text"
-            name="firstname"
             className="border border-gray-300 p-2 rounded mb-4 w-full shadow-lg"
-            value={userData.firstname}
-            onChange={handleInputChange}
+            value={firstname}
+            onChange={(e) => setFirstname(e.target.value.toUpperCase())}
             placeholder="First Name"
           />
           <input
             type="text"
-            name="lastname"
             className="border border-gray-300 p-2 rounded mb-4 w-full shadow-lg"
-            value={userData.lastname}
-            onChange={handleInputChange}
+            value={lastname}
+            onChange={(e) => setLastname(e.target.value.toUpperCase())}
             placeholder="Last Name"
           />
 
