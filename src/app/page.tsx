@@ -82,7 +82,7 @@ export default function Home() {
   };
   return (
     <main
-      className="relative max-h-screen flex flex-col  "
+      className="relative max-h-screen flex flex-col h-4/5"
       style={{
         // Set background image
 
@@ -92,7 +92,7 @@ export default function Home() {
       }}
     >
       <div
-        className="h-48 w-full rounded-b-3xl relative"
+        className="h-36 w-full rounded-b-3xl relative"
         style={{
           backgroundSize: "cover", // or 'contain', depending on your needs
           backgroundPosition: "center",
@@ -107,7 +107,7 @@ export default function Home() {
           <CiLogout className="font-extrabold" />
         </button>
         <div
-          className="md:flex-col flex flex-col-reverse items-center justify-center gap-4 md:pt-11 pt-14 pb-14 shadow-xl"
+          className="md:flex-col flex flex-col-reverse items-center justify-center gap-4 md:pt-11 pt-5 pb-10 shadow-xl"
           style={{
             borderBottomLeftRadius: "50%",
             borderBottomRightRadius: "50%",
@@ -140,42 +140,31 @@ export default function Home() {
           {qrCodeValue && (
             <QRCode
               value={qrCodeValue}
-              className="md:h-72 md:w-72 h-40 w-40 object-contain shadow-xl"
+              className="md:h-72 md:w-72 h-28 w-28 object-contain shadow-xl"
             />
           )}
         </div>
-        <div className="w-full p-10 relative z-10 ">
-          <table className="min-w-full border-spacing-4   border border-gray-300 rounded-lg shadow-xl overflow-hidden ">
-            <thead
-              className="rounded-2xl overflow-hidden  border border-slate-50"
-              style={{ backgroundColor: "black" }}
-            >
-              <tr className="text-center">
-                <th className="px-4 py-2 p-2 text-xl text-white font-semibold md:w-3/12">
+        <div className="w-full p-6 relative z-10 ">
+          <table className="min-w-full border-spacing-4   border border-slate-800 rounded-lg shadow-xl overflow-hidden ">
+            <thead className="rounded-2xl overflow-hidden bg-slate-800 border border-slate-50">
+              <tr className="text-center ">
+                <th className="px-4 py-2 p-2 text-xl text-white font-semibold md:w-3/12 border border-slate-50 ">
                   Stations
                 </th>{" "}
-                <th className="px-4 py-2 p-2 text-xl  text-white font-semibold md:w-9/12">
+                <th className="px-4 py-2 p-2 text-xl  text-white font-semibold md:w-9/12 border border-slate-50">
                   Status
                 </th>
               </tr>
             </thead>
             <tbody className="text-center" style={{ color: "#134B70" }}>
-              <tr
-                style={{
-                  backgroundColor: "#EEEEEE",
-                  color: "#134B70",
-                }}
-              >
+              <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
                   <h1 className="text-black hover:text-blue-800 font-bold">
-                    FLOOR LAYOUT{" "}
-                    <span className="text-green-500 font-normal text-sm">
-                      (Optional)
-                    </span>
+                    STORE X
                   </h1>
                 </td>
-                <td className="px-4 py-2 w-full flex justify-center items-center  ">
-                  {data?.station1.status == "scanned" ? (
+                <td className="px-4 py-2 w-full flex justify-center items-center">
+                  {data?.station6.status == "scanned" ? (
                     <Image
                       className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
                       src={check}
@@ -245,8 +234,8 @@ export default function Home() {
               </tr>
 
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
-                <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
-                  <h1 className="text-black hover:text-blue-800 font-bold">
+                <td className="px-4 py-2 w-9/12 bg-slate-800  border border-slate-50">
+                  <h1 className="text-white hover:text-blue-800 font-bold">
                     3MVAS{" "}
                     <span className="text-green-500 font-normal text-sm">
                       (Optional)
@@ -266,14 +255,22 @@ export default function Home() {
                 </td>
               </tr>
 
-              <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
-                <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
-                  <h1 className="text-black hover:text-blue-800 font-bold">
-                    STORE X
+              <tr
+                style={{
+                  backgroundColor: "#EEEEEE",
+                  color: "#134B70",
+                }}
+              >
+                <td className="px-4 py-2 w-9/12 bg-slate-800  border border-slate-50">
+                  <h1 className="text-white hover:text-blue-800 font-bold">
+                    FLOOR LAYOUT{" "}
+                    <span className="text-green-500 font-normal text-sm">
+                      (Optional)
+                    </span>
                   </h1>
                 </td>
-                <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {data?.station6.status == "scanned" ? (
+                <td className="px-4 py-2 w-full flex justify-center items-center  ">
+                  {data?.station1.status == "scanned" ? (
                     <Image
                       className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
                       src={check}

@@ -46,21 +46,15 @@ export default function Home() {
   };
 
   return (
-    <main
-      className="relative min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
-      style={{
-        backgroundImage: `url(${tirebackg.src})`,
-        backgroundColor: "#fffef5",
-      }}
-    >
+    <main className="relative  flex flex-col bg-cover  bg-no-repeat">
       <div
         className="h-96 w-full rounded-b-3xl relative bg-right bg-contain bg-no-repeat"
         style={{ backgroundImage: `url(${flag.src})` }}
       ></div>
 
-      <div className="w-full flex justify-center items-center absolute md:top-60 top-72 p-6">
+      <div className="w-full flex justify-center items-center absolute md:top-60 top-60 p-6">
         <form
-          className="p-7 text-center rounded-xl shadow-4xl w-96 bg-black"
+          className="p-7 text-center rounded-xl shadow-4xl w-96 bg-black shadow-2xl"
           onSubmit={handleSubmit}
         >
           <label className="block mb-2 font-medium text-white text-3xl">
