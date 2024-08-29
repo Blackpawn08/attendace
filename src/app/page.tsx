@@ -153,7 +153,7 @@ export default function Home() {
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12">
                   <h1 className="text-black hover:text-blue-800 font-bold">
-                    FLOOR LAYOUT
+                    FLOOR LAYOUT (Optional)
                   </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
@@ -229,7 +229,7 @@ export default function Home() {
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12">
                   <h1 className="text-black hover:text-blue-800 font-bold">
-                    3MVAS
+                    3MVAS <span className="text-red-500">(Optional)</span>
                   </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
