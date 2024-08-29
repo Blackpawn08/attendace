@@ -149,7 +149,6 @@ export default function Home() {
 
       if (response.status === 200) {
         console.log(response.data.message);
-        localStorage.setItem("user", JSON.stringify(response.data.user));
         router.push("/");
       } else {
         console.error("Failed to insert user data");
@@ -171,6 +170,7 @@ export default function Home() {
         backgroundColor: "#fffef5",
       }}
     >
+     
       <div
         className="h-96 w-full rounded-b-3xl relative  "
         style={{
@@ -179,8 +179,10 @@ export default function Home() {
           backgroundPosition: "right",
           backgroundRepeat: "no-repeat",
         }}
-      ></div>
-
+      >
+        <button>Test</button>
+      </div>
+ 
       <div className="w-full flex justify-center items-center absolute md:top-60 top-72 p-6">
         <form
           /*onSubmit={handleSubmit}*/ className="p-7 text-center rounded-xl shadow-4xl w-96  "
