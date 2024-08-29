@@ -160,25 +160,6 @@ export default function Home() {
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
                   <h1 className="text-black hover:text-blue-800 font-bold">
-                    STORE X
-                  </h1>
-                </td>
-                <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {data?.station6.status == "scanned" ? (
-                    <Image
-                      className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
-                      src={check}
-                      alt="check"
-                    />
-                  ) : (
-                    <h1 className="h-5 w-5 bg-red-700 hidden rounded-full" />
-                  )}
-                </td>
-              </tr>
-
-              <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
-                <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
-                  <h1 className="text-black hover:text-blue-800 font-bold">
                     KRVR + POG
                   </h1>
                 </td>
@@ -198,7 +179,7 @@ export default function Home() {
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
                   <h1 className="text-black hover:text-blue-800 font-bold">
-                    EVEER DEEN
+                    EVER DEEN
                   </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
@@ -222,6 +203,44 @@ export default function Home() {
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
                   {data?.station4.status == "scanned" ? (
+                    <Image
+                      className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
+                      src={check}
+                      alt="check"
+                    />
+                  ) : (
+                    <h1 className="h-5 w-5 bg-red-700 hidden rounded-full" />
+                  )}
+                </td>
+              </tr>
+
+              <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
+                <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
+                  <h1 className="text-black hover:text-blue-800 font-bold">
+                    EYE TRACKER
+                  </h1>
+                </td>
+                <td className="px-4 py-2 w-full flex justify-center items-center">
+                  {data?.station7.status == "scanned" ? (
+                    <Image
+                      className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
+                      src={check}
+                      alt="check"
+                    />
+                  ) : (
+                    <h1 className="h-5 w-5 bg-red-700 hidden rounded-full" />
+                  )}
+                </td>
+              </tr>
+
+              <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
+                <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
+                  <h1 className="text-black hover:text-blue-800 font-bold">
+                    STORE X
+                  </h1>
+                </td>
+                <td className="px-4 py-2 w-full flex justify-center items-center">
+                  {data?.station6.status == "scanned" ? (
                     <Image
                       className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
                       src={check}
