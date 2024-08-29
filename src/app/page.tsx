@@ -221,7 +221,7 @@ export default function Home() {
                   </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {data?.station7.status == "scanned" ? (
+                  {data?.station7.status === "scanned" ? (
                     <Image
                       className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
                       src={check}
