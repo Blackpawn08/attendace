@@ -15,7 +15,7 @@ import tiremain from "../assets/tiremain.png";
 import QRCode from "react-qr-code";
 import check from "../assets/check.png";
 import f2 from "../assets/f3.jpg";
-import { isNull } from "util";
+import { CiLogout } from "react-icons/ci";
 
 export default function Home() {
   const router = useRouter();
@@ -79,7 +79,7 @@ export default function Home() {
   const resetUser = () => {
     localStorage.clear();
     router.push("/");
-  }
+  };
   return (
     <main
       className="relative max-h-screen flex flex-col  "
@@ -91,7 +91,6 @@ export default function Home() {
         opacity: "95%",
       }}
     >
-   
       <div
         className="h-48 w-full rounded-b-3xl relative"
         style={{
@@ -101,7 +100,12 @@ export default function Home() {
           opacity: "95%",
         }}
       >
-           <button className="absolute m-3 bg-white p-3 rounded-md" onClick={resetUser}>Test</button>
+        <button
+          className="absolute m-3 bg-slate-800 p-3 text-white rounded-md"
+          onClick={resetUser}
+        >
+          <CiLogout className="font-extrabold" />
+        </button>
         <div
           className="md:flex-col flex flex-col-reverse items-center justify-center gap-4 md:pt-11 pt-14 pb-14 shadow-xl"
           style={{
@@ -114,7 +118,6 @@ export default function Home() {
             backgroundRepeat: "no-repeat",
           }}
         >
-          
           <Image
             className="md:h-48 md:w-48 h-32 w-32 shadow-2xl rounded-full "
             src={profile}
@@ -142,10 +145,10 @@ export default function Home() {
           )}
         </div>
         <div className="w-full p-10 relative z-10 ">
-          <table className="min-w-full border-collapse border border-gray-200 rounded-lg shadow-xl overflow-hidden">
+          <table className="min-w-full border-spacing-4   border border-gray-300 rounded-lg shadow-xl overflow-hidden ">
             <thead
-              className="rounded-2xl overflow-hidden"
-              style={{ backgroundColor: "#134B70" }}
+              className="rounded-2xl overflow-hidden  border border-slate-50"
+              style={{ backgroundColor: "black" }}
             >
               <tr className="text-center">
                 <th className="px-4 py-2 p-2 text-xl text-white font-semibold md:w-3/12">
@@ -157,13 +160,21 @@ export default function Home() {
               </tr>
             </thead>
             <tbody className="text-center" style={{ color: "#134B70" }}>
-              <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
-                <td className="px-4 py-2 w-9/12">
+              <tr
+                style={{
+                  backgroundColor: "#EEEEEE",
+                  color: "#134B70",
+                }}
+              >
+                <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
                   <h1 className="text-black hover:text-blue-800 font-bold">
-                    FLOOR LAYOUT (Optional)
+                    FLOOR LAYOUT{" "}
+                    <span className="text-green-500 font-normal text-sm">
+                      (Optional)
+                    </span>
                   </h1>
                 </td>
-                <td className="px-4 py-2 w-full flex justify-center items-center">
+                <td className="px-4 py-2 w-full flex justify-center items-center  ">
                   {data?.station1.status == "scanned" ? (
                     <Image
                       className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
@@ -177,7 +188,7 @@ export default function Home() {
               </tr>
 
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
-                <td className="px-4 py-2 w-9/12">
+                <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
                   <h1 className="text-black hover:text-blue-800 font-bold">
                     KRVR + POG
                   </h1>
@@ -196,7 +207,7 @@ export default function Home() {
               </tr>
 
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
-                <td className="px-4 py-2 w-9/12">
+                <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
                   <h1 className="text-black hover:text-blue-800 font-bold">
                     EVEER DEEN
                   </h1>
@@ -215,7 +226,7 @@ export default function Home() {
               </tr>
 
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
-                <td className="px-4 py-2 w-9/12">
+                <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
                   <h1 className="text-black hover:text-blue-800 font-bold">
                     WOODY + BUZZ
                   </h1>
@@ -234,9 +245,12 @@ export default function Home() {
               </tr>
 
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
-                <td className="px-4 py-2 w-9/12">
+                <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
                   <h1 className="text-black hover:text-blue-800 font-bold">
-                    3MVAS <span className="text-red-500">(Optional)</span>
+                    3MVAS{" "}
+                    <span className="text-green-500 font-normal text-sm">
+                      (Optional)
+                    </span>
                   </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
@@ -253,7 +267,7 @@ export default function Home() {
               </tr>
 
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
-                <td className="px-4 py-2 w-9/12">
+                <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
                   <h1 className="text-black hover:text-blue-800 font-bold">
                     STORE X
                   </h1>
