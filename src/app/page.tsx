@@ -76,6 +76,10 @@ export default function Home() {
     return () => clearInterval(intervalId);
   }, [router]); // Dependency on `router` to refetch when it changes
 
+  const resetUser = () => {
+    localStorage.clear();
+    router.push("/");
+  }
   return (
     <main
       className="relative max-h-screen flex flex-col  "
@@ -87,6 +91,7 @@ export default function Home() {
         opacity: "95%",
       }}
     >
+   
       <div
         className="h-48 w-full rounded-b-3xl relative"
         style={{
@@ -96,6 +101,7 @@ export default function Home() {
           opacity: "95%",
         }}
       >
+           <button className="absolute m-3 bg-white p-3 rounded-md" onClick={resetUser}>Test</button>
         <div
           className="md:flex-col flex flex-col-reverse items-center justify-center gap-4 md:pt-11 pt-14 pb-14 shadow-xl"
           style={{
@@ -108,6 +114,7 @@ export default function Home() {
             backgroundRepeat: "no-repeat",
           }}
         >
+          
           <Image
             className="md:h-48 md:w-48 h-32 w-32 shadow-2xl rounded-full "
             src={profile}
