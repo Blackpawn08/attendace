@@ -153,7 +153,7 @@ export default function Home() {
             <thead className="rounded-2xl overflow-hidden bg-slate-800 border border-slate-50">
               <tr className="text-center ">
                 <th className="px-4 py-2 p-2 text-xl text-white font-semibold md:w-3/12 border border-slate-50 ">
-                  Retsol Services Experential Stations
+                  Retsol Services Experiential Stations
                 </th>{" "}
                 <th className="px-4 py-2 p-2 text-xl  text-white font-semibold md:w-9/12 border border-slate-50">
                   Status
@@ -217,15 +217,14 @@ export default function Home() {
                   )}
                 </td>
               </tr>
-
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
                   <h1 className="text-black hover:text-blue-800 font-bold  text-sm">
-                    EYE TRACKER
+                    STORE X
                   </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {data?.station7?.status === "scanned" ? (
+                  {data?.station6.status == "scanned" ? (
                     <Image
                       className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
                       src={check}
@@ -236,15 +235,14 @@ export default function Home() {
                   )}
                 </td>
               </tr>
-
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
                   <h1 className="text-black hover:text-blue-800 font-bold  text-sm">
-                    STORE X
+                    EYE TRACKER
                   </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {data?.station6.status == "scanned" ? (
+                  {data?.station7?.status === "scanned" ? (
                     <Image
                       className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
                       src={check}
