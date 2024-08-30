@@ -15,6 +15,7 @@ import tiremain from "../assets/tiremain.png";
 import QRCode from "react-qr-code";
 import check from "../assets/check.png";
 import f2 from "../assets/f3.jpg";
+import gift from "../assets/gift.png";
 import { CiLogout } from "react-icons/ci";
 
 export default function Home() {
@@ -130,26 +131,29 @@ export default function Home() {
         </div>
       </div>
       <div className="md:flex md:mt-36 mt-16 justify-between items-center md:w-full relative ">
-        <div className="md:w-2/5 flex justify-center p-2 relative z-10">
+        <div className="md:w-2/5 flex justify-center items-center gap-8 p-2 relative z-10">
           {/* <Image
             className="md:h-72 md:w-72 h-40 w-40 object-contain shadow-xl"
             src={qrCodeValue}
             alt="qr-code"
           /> */}
-
+          <div className="w-2/4 h-auto ">
+            <Image src={gift} alt="gift" />
+          </div>
           {qrCodeValue && (
             <QRCode
               value={qrCodeValue}
-              className="md:h-72 md:w-72 h-28 w-28 object-contain shadow-xl"
+              className="md:h-72 md:w-72 h-auto w-1/3 object-contain shadow-xl"
             />
           )}
         </div>
+
         <div className="w-full p-6 relative z-10 ">
           <table className="min-w-full border-spacing-4   border border-slate-800 rounded-lg shadow-xl overflow-hidden ">
             <thead className="rounded-2xl overflow-hidden bg-slate-800 border border-slate-50">
               <tr className="text-center ">
                 <th className="px-4 py-2 p-2 text-xl text-white font-semibold md:w-3/12 border border-slate-50 ">
-                  Stations
+                  Retsol Services Experential Stations
                 </th>{" "}
                 <th className="px-4 py-2 p-2 text-xl  text-white font-semibold md:w-9/12 border border-slate-50">
                   Status
@@ -159,7 +163,7 @@ export default function Home() {
             <tbody className="text-center" style={{ color: "#134B70" }}>
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
-                  <h1 className="text-black hover:text-blue-800 font-bold">
+                  <h1 className="text-black hover:text-blue-800 font-bold text-sm">
                     KRVR + POG
                   </h1>
                 </td>
@@ -178,8 +182,8 @@ export default function Home() {
 
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
-                  <h1 className="text-black hover:text-blue-800 font-bold">
-                    EVER DEEN
+                  <h1 className="text-black hover:text-blue-800 font-bold  text-sm">
+                    EVERDEEN
                   </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
@@ -197,7 +201,7 @@ export default function Home() {
 
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
-                  <h1 className="text-black hover:text-blue-800 font-bold">
+                  <h1 className="text-black hover:text-blue-800 font-bold  text-sm">
                     WOODY + BUZZ
                   </h1>
                 </td>
@@ -216,7 +220,7 @@ export default function Home() {
 
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
-                  <h1 className="text-black hover:text-blue-800 font-bold">
+                  <h1 className="text-black hover:text-blue-800 font-bold  text-sm">
                     EYE TRACKER
                   </h1>
                 </td>
@@ -235,7 +239,7 @@ export default function Home() {
 
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
-                  <h1 className="text-black hover:text-blue-800 font-bold">
+                  <h1 className="text-black hover:text-blue-800 font-bold  text-sm">
                     STORE X
                   </h1>
                 </td>
@@ -254,7 +258,7 @@ export default function Home() {
 
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12 bg-slate-800  border border-slate-50">
-                  <h1 className="text-white hover:text-blue-800 font-bold">
+                  <h1 className="text-white hover:text-blue-800 font-bold  text-sm">
                     3MVAS{" "}
                     <span className="text-green-500 font-normal text-sm">
                       (Optional)
@@ -281,7 +285,7 @@ export default function Home() {
                 }}
               >
                 <td className="px-4 py-2 w-9/12 bg-slate-800  border border-slate-50">
-                  <h1 className="text-white hover:text-blue-800 font-bold">
+                  <h1 className="text-white hover:text-blue-800 font-bold  text-sm">
                     FLOOR LAYOUT{" "}
                     <span className="text-green-500 font-normal text-sm">
                       (Optional)
