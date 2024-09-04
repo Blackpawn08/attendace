@@ -273,12 +273,12 @@ export default function Home() {
                 <td className="px-4 py-2 w-9/12 bg-slate-800  border border-slate-50">
                   <h1 className="text-white hover:text-blue-800 font-bold  text-sm">
                     3MVAS{" "}
-                    <span className="text-green-500 font-normal text-sm">
-                      (Optional)
+                    <span className="text-white font-normal text-xs italic">
+                      (AVR)
                     </span>
                   </h1>
-                  <span className="text-white font-normal text-xs italic">
-                    (AVR)
+                  <span className="text-green-500 font-normal text-xs">
+                    (Optional)
                   </span>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
@@ -303,12 +303,12 @@ export default function Home() {
                 <td className="px-4 py-2 w-9/12 bg-slate-800  border border-slate-50">
                   <h1 className="text-white hover:text-blue-800 font-bold  text-sm">
                     FLOOR LAYOUT{" "}
-                    <span className="text-green-500 font-normal text-sm">
-                      (Optional)
+                    <span className="text-white font-normal text-xs italic">
+                      (CCC Area)
                     </span>
                   </h1>
-                  <span className="text-white font-normal text-xs italic">
-                    (CCC Area)
+                  <span className="text-green-500 font-normal text-xs">
+                    (Optional)
                   </span>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center  ">
