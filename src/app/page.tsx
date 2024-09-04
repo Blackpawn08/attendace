@@ -164,7 +164,10 @@ export default function Home() {
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
                   <h1 className="text-black hover:text-blue-800 font-bold text-sm">
-                    KRVR + POG
+                    KRVR + POG{" "}
+                    <span className="text-black font-normal text-xs italic">
+                      (Room 910)
+                    </span>{" "}
                   </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
@@ -184,6 +187,9 @@ export default function Home() {
                 <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
                   <h1 className="text-black hover:text-blue-800 font-bold  text-sm">
                     EVERDEEN
+                    <span className="text-black font-normal text-xs italic">
+                      (AVR)
+                    </span>
                   </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
@@ -203,6 +209,9 @@ export default function Home() {
                 <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
                   <h1 className="text-black hover:text-blue-800 font-bold  text-sm">
                     WOODY + BUZZ
+                    <span className="text-black font-normal text-xs italic">
+                      (AVR)
+                    </span>{" "}
                   </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
@@ -217,10 +226,35 @@ export default function Home() {
                   )}
                 </td>
               </tr>
+
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
                   <h1 className="text-black hover:text-blue-800 font-bold  text-sm">
-                    STORE X
+                    EYETRACKER{" "}
+                    <span className="text-black font-normal text-xs italic">
+                      (STORE X)
+                    </span>
+                  </h1>
+                </td>
+                <td className="px-4 py-2 w-full flex justify-center items-center">
+                  {data?.station7?.status === "scanned" ? (
+                    <Image
+                      className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
+                      src={check}
+                      alt="check"
+                    />
+                  ) : (
+                    <h1 className="h-5 w-5 bg-red-700 hidden rounded-full" />
+                  )}
+                </td>
+              </tr>
+              <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
+                <td className="px-4 py-2 w-9/12 bg-green-500  border border-slate-50">
+                  <h1 className="text-white hover:text-blue-800 font-bold  text-sm">
+                    STORE X{" "}
+                    <span className="text-black font-normal text-sm">
+                      (Required to qualify)
+                    </span>
                   </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
@@ -236,25 +270,6 @@ export default function Home() {
                 </td>
               </tr>
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
-                <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
-                  <h1 className="text-black hover:text-blue-800 font-bold  text-sm">
-                    EYE TRACKER
-                  </h1>
-                </td>
-                <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {data?.station7?.status === "scanned" ? (
-                    <Image
-                      className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
-                      src={check}
-                      alt="check"
-                    />
-                  ) : (
-                    <h1 className="h-5 w-5 bg-red-700 hidden rounded-full" />
-                  )}
-                </td>
-              </tr>
-
-              <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12 bg-slate-800  border border-slate-50">
                   <h1 className="text-white hover:text-blue-800 font-bold  text-sm">
                     3MVAS{" "}
@@ -262,6 +277,9 @@ export default function Home() {
                       (Optional)
                     </span>
                   </h1>
+                  <span className="text-white font-normal text-xs italic">
+                    (AVR)
+                  </span>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
                   {data?.station5.status == "scanned" ? (
@@ -289,6 +307,9 @@ export default function Home() {
                       (Optional)
                     </span>
                   </h1>
+                  <span className="text-white font-normal text-xs italic">
+                    (CCC Area)
+                  </span>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center  ">
                   {data?.station1.status == "scanned" ? (
