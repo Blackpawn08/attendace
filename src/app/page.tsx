@@ -15,6 +15,7 @@ import tiremain from "../assets/tiremain.png";
 import QRCode from "react-qr-code";
 import check from "../assets/check.png";
 import f2 from "../assets/f3.jpg";
+import gift from "../assets/gift.png";
 import { CiLogout } from "react-icons/ci";
 
 import knorrbg from "../assets/knorr_bg.png";
@@ -84,7 +85,7 @@ export default function Home() {
   };
   return (
     <main
-      className="relative max-h-screen flex flex-col  "
+      className="relative max-h-screen flex flex-col h-4/5"
       style={{
         // Set background image
 
@@ -94,7 +95,7 @@ export default function Home() {
       }}
     >
       <div
-        className="h-48 w-full rounded-b-3xl relative"
+        className="h-36 w-full rounded-b-3xl relative"
         style={{
           backgroundSize: "cover", // or 'contain', depending on your needs
           backgroundPosition: "center",
@@ -143,7 +144,9 @@ export default function Home() {
             src={qrCodeValue}
             alt="qr-code"
           /> */}
-
+          <div className="w-2/4 h-auto ">
+            <Image src={gift} alt="gift" />
+          </div>
           {qrCodeValue && (
             <QRCode
               value={qrCodeValue}
@@ -151,17 +154,15 @@ export default function Home() {
             />
           )}
         </div>
-        <div className="w-full p-10 relative z-10 ">
-          <table className="min-w-full border-spacing-4   border border-gray-300 rounded-lg shadow-xl overflow-hidden ">
-            <thead
-              className="rounded-2xl overflow-hidden  border border-slate-50"
-              style={{ backgroundColor: "black" }}
-            >
-              <tr className="text-center">
-                <th className="px-4 py-2 p-2 text-xl text-white font-semibold md:w-3/12">
-                  Stations
+
+        <div className="w-full p-6 relative z-10 ">
+          <table className="min-w-full border-spacing-4   border border-slate-800 rounded-lg shadow-xl overflow-hidden ">
+            <thead className="rounded-2xl overflow-hidden bg-slate-800 border border-slate-50">
+              <tr className="text-center ">
+                <th className="px-4 py-2 p-2 text-xl text-white font-semibold md:w-3/12 border border-slate-50 ">
+                  Retsol Services Experiential Stations
                 </th>{" "}
-                <th className="px-4 py-2 p-2 text-xl  text-white font-semibold md:w-9/12">
+                <th className="px-4 py-2 p-2 text-xl  text-white font-semibold md:w-9/12 border border-slate-50">
                   Status
                 </th>
               </tr>
@@ -206,7 +207,6 @@ export default function Home() {
                   )}
                 </td>
               </tr>
-
 
             </tbody>
           </table>
