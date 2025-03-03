@@ -17,6 +17,8 @@ import check from "../assets/check.png";
 import f2 from "../assets/f3.jpg";
 import { CiLogout } from "react-icons/ci";
 
+import knorrbg from "../assets/knorr_bg.png";
+import lcbg from "../assets/LC_background.jpg";
 export default function Home() {
   const router = useRouter();
   const [user, setUser] = useState(null);
@@ -47,7 +49,7 @@ export default function Home() {
               }
             );
 
-            if (response.status === 200) {
+            if (response.status === 200 ) {
               setData(response.data.data);
             } else {
               localStorage.clear();
@@ -107,29 +109,34 @@ export default function Home() {
           <CiLogout className="font-extrabold" />
         </button>
         <div
-          className="md:flex-col flex flex-col-reverse items-center justify-center gap-4 md:pt-11 pt-14 pb-14 shadow-xl"
+          className="md:flex-col flex flex-col-reverse items-center justify-center gap-4 md:pt-11 pt-14 pb-10 shadow-xl"
           style={{
             borderBottomLeftRadius: "50%",
             borderBottomRightRadius: "50%",
-            backgroundColor: "#134B70",
-            backgroundImage: `url(${f2.src})`, // Correct way to set background image
+            backgroundColor: "#ED1C24",
+            // LC
+            backgroundImage: `url(${lcbg.src})`,
+            // Knorr
+            // Correct way to set background image
+            // backgroundImage: `url(${knorrbg.src})`, // Correct way to set background image
             backgroundSize: "cover", // Optional: to cover the entire div
             backgroundPosition: "center", // Optional: center the image
             backgroundRepeat: "no-repeat",
           }}
         >
           <Image
-            className="md:h-48 md:w-48 h-32 w-32 shadow-2xl rounded-full "
+            className="md:h-48 md:w-48 h-20 w-20 shadow-2xl rounded-full "
             src={profile}
             alt="profile"
           />
 
-          <h1 className="md:text-4xl text-2xl font-bold text-white  md:bg-transparent  ">
+          <h1 className="md:text-4xl text-2xl font-bold text-[#dcb74f]  md:bg-transparent   ">
             {data?.firstname}&nbsp;{data?.lastname}
           </h1>
         </div>
       </div>
-      <div className="md:flex md:mt-36 mt-16 justify-between items-center md:w-full relative ">
+      
+      <div className="md:flex md:mt-36 mt-10 justify-between items-center md:w-full relative ">
         <div className="md:w-2/5 flex justify-center p-2 relative z-10">
           {/* <Image
             className="md:h-72 md:w-72 h-40 w-40 object-contain shadow-xl"
@@ -140,7 +147,7 @@ export default function Home() {
           {qrCodeValue && (
             <QRCode
               value={qrCodeValue}
-              className="md:h-72 md:w-72 h-40 w-40 object-contain shadow-xl"
+              className="md:h-72 md:w-72 h-32 w-32 object-contain shadow-xl"
             />
           )}
         </div>
@@ -160,21 +167,15 @@ export default function Home() {
               </tr>
             </thead>
             <tbody className="text-center" style={{ color: "#134B70" }}>
-              <tr
-                style={{
-                  backgroundColor: "#EEEEEE",
-                  color: "#134B70",
-                }}
-              >
+            
+
+              <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
                   <h1 className="text-black hover:text-blue-800 font-bold">
-                    FLOOR LAYOUT{" "}
-                    <span className="text-green-500 font-normal text-sm">
-                      (Optional)
-                    </span>
+                    KRVR
                   </h1>
                 </td>
-                <td className="px-4 py-2 w-full flex justify-center items-center  ">
+                <td className="px-4 py-2 w-full flex justify-center items-center">
                   {data?.station1.status == "scanned" ? (
                     <Image
                       className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
@@ -190,7 +191,7 @@ export default function Home() {
               <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
                 <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
                   <h1 className="text-black hover:text-blue-800 font-bold">
-                    KRVR + POG
+                   PLANOGRAM
                   </h1>
                 </td>
                 <td className="px-4 py-2 w-full flex justify-center items-center">
@@ -206,84 +207,7 @@ export default function Home() {
                 </td>
               </tr>
 
-              <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
-                <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
-                  <h1 className="text-black hover:text-blue-800 font-bold">
-                    EVEER DEEN
-                  </h1>
-                </td>
-                <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {data?.station3.status == "scanned" ? (
-                    <Image
-                      className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
-                      src={check}
-                      alt="check"
-                    />
-                  ) : (
-                    <h1 className="h-5 w-5 bg-red-700 hidden rounded-full" />
-                  )}
-                </td>
-              </tr>
 
-              <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
-                <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
-                  <h1 className="text-black hover:text-blue-800 font-bold">
-                    WOODY + BUZZ
-                  </h1>
-                </td>
-                <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {data?.station4.status == "scanned" ? (
-                    <Image
-                      className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
-                      src={check}
-                      alt="check"
-                    />
-                  ) : (
-                    <h1 className="h-5 w-5 bg-red-700 hidden rounded-full" />
-                  )}
-                </td>
-              </tr>
-
-              <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
-                <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
-                  <h1 className="text-black hover:text-blue-800 font-bold">
-                    3MVAS{" "}
-                    <span className="text-green-500 font-normal text-sm">
-                      (Optional)
-                    </span>
-                  </h1>
-                </td>
-                <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {data?.station5.status == "scanned" ? (
-                    <Image
-                      className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
-                      src={check}
-                      alt="check"
-                    />
-                  ) : (
-                    <h1 className="h-5 w-5 bg-red-700 hidden rounded-full" />
-                  )}
-                </td>
-              </tr>
-
-              <tr style={{ backgroundColor: "#EEEEEE", color: "#134B70" }}>
-                <td className="px-4 py-2 w-9/12 bg-slate-200  border border-slate-50">
-                  <h1 className="text-black hover:text-blue-800 font-bold">
-                    STORE X
-                  </h1>
-                </td>
-                <td className="px-4 py-2 w-full flex justify-center items-center">
-                  {data?.station6.status == "scanned" ? (
-                    <Image
-                      className="md:h-18 md:w-18 h-8 w-8 bg-transparent rounded-full "
-                      src={check}
-                      alt="check"
-                    />
-                  ) : (
-                    <h1 className="h-5 w-5 bg-red-700 hidden rounded-full" />
-                  )}
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>

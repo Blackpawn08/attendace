@@ -5,6 +5,10 @@ import axios from "axios";
 import Image from "next/image";
 import flag from "../../assets/flag.png";
 import tirebackg from "../../assets/tirebackg.png";
+import knorrbg from "../../assets/knorr_bg.png";
+import knorroverlay from "../../assets/knorr_overlay_1.png";
+import LCbg from "../../assets/LC_background.jpg"; 
+import LClogo from "../../assets/LC.png";
 
 export default function Home() {
   const [firstname, setFirstname] = useState("");
@@ -33,7 +37,7 @@ export default function Home() {
         }
       );
 
-      if (response.status === 200) {
+      if (response.status === 200 || response.status === 201) {
         console.log(response.data.message);
         localStorage.setItem("user", JSON.stringify(response.data.user));
         router.push("/");
@@ -49,18 +53,29 @@ export default function Home() {
     <main
       className="relative min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: `url(${tirebackg.src})`,
+
+        // LC
+        backgroundImage: `url(${LCbg.src})`, 
+        // Knorr
+        // backgroundImage: `url(${knorrbg.src})`,
         backgroundColor: "#fffef5",
       }}
     >
       <div
-        className="h-96 w-full rounded-b-3xl relative bg-right bg-contain bg-no-repeat"
-        style={{ backgroundImage: `url(${flag.src})` }}
+        className=" w-full rounded-b-3xl relative bg-center md:bg-right bg-contain bg-no-repeat mt-4
+         h-60 "
+
+        //  set H to 60 for LC and md:bg to bg-center
+        
+        // LC
+        style={{ backgroundImage: `url(${LClogo.src})` }}
+        // Knorr
+        // style={{ backgroundImage: `url(${knorroverlay.src})` }}
       ></div>
 
-      <div className="w-full flex justify-center items-center absolute md:top-60 top-72 p-6">
+      <div className="w-full flex justify-center items-center absolute md:top-60 top-56 p-6">
         <form
-          className="p-7 text-center rounded-xl shadow-4xl w-96 bg-black"
+          className="p-7 text-center rounded-xl shadow-4xl w-96 bg-[#182e78]"
           onSubmit={handleSubmit}
         >
           <label className="block mb-2 font-medium text-white text-3xl">
@@ -84,8 +99,11 @@ export default function Home() {
 
           <button
             type="submit"
-            className="text-black font-semibold p-2 rounded shadow-lg"
-            style={{ backgroundColor: "#E2E2B6" }}
+            className="text-white font-semibold p-2 rounded shadow-lg"
+            //  Knorr 
+            // style={{ backgroundColor: "#ED1C24" }}
+            // LC       
+            style={{ backgroundColor: "#ED1C24" }}
           >
             Submit
           </button>

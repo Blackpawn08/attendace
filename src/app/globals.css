@@ -12,7 +12,11 @@
 
 body {
   color: black;
-  background: #f5eded;
+
+  /*Lady's Choice  */
+  background: #146aad;
+  /* Knorr Background */
+  /* background: #008641; */
 }
 
 @layer utilities {
