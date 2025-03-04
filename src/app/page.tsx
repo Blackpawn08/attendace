@@ -104,12 +104,21 @@ export default function Home() {
           opacity: "95%",
         }}
       >
+        <div className="absolute w-full flex flex-row  justify-between items-center">
         <button
-          className="absolute m-3 bg-slate-800 p-3 text-white rounded-md"
+          className=" m-3 bg-[#dcb74f] p-3 text-white rounded-md"
           onClick={resetUser}
         >
-          <CiLogout className="font-extrabold" />
+          <CiLogout className="font-black" />
         </button>
+
+        <button
+          className=" m-3 bg-[#dcb74f] p-3 text-sm text-white rounded-md"
+          onClick={() => router.push("/help")}
+        >
+         Steps
+        </button>
+        </div>
         <div
           className="md:flex-col flex flex-col-reverse items-center justify-center gap-4 md:pt-11 pt-14 pb-10 shadow-xl"
           style={{
