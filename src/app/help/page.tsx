@@ -104,7 +104,7 @@ export default function Home() {
         }}
       >
         <button
-          className="absolute m-3 bg-slate-800 p-3 text-white rounded-md"
+          className="absolute m-3 bg-[#dcb74f] p-3 text-white rounded-md"
           onClick={resetUser}
         >
           <CiLogout className="font-extrabold" />

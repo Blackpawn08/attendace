@@ -112,12 +112,7 @@ export default function Home() {
           <CiLogout className="font-black" />
         </button>
 
-        <button
-          className=" m-3 bg-[#dcb74f] p-3 text-sm text-white rounded-md"
-          onClick={() => router.push("/help")}
-        >
-         Steps
-        </button>
+       
         </div>
         <div
           className="md:flex-col flex flex-col-reverse items-center justify-center gap-4 md:pt-11 pt-14 pb-10 shadow-xl"
@@ -165,7 +160,7 @@ export default function Home() {
           )}
         </div>
 
-        <div className="w-full p-6 relative z-10 ">
+        <div className="w-full p-6 relative z-10 flex flex-col items-center justify-center">
           <table className="min-w-full border-spacing-4   border border-slate-800 rounded-lg shadow-xl overflow-hidden ">
             <thead className="rounded-2xl overflow-hidden bg-slate-800 border border-slate-50">
               <tr className="text-center ">
@@ -220,6 +215,12 @@ export default function Home() {
 
             </tbody>
           </table>
+          <button
+          className=" m-3 bg-[#dcb74f] p-3 text-sm text-white rounded-md"
+          onClick={() => router.push("/help")}
+        >
+         Please click for detailed steps.
+        </button>
         </div>
         {/*  <Image src={track} alt="racetrack"></Image> */}
       </div>{" "}
