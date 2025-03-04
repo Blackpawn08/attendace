@@ -15,7 +15,8 @@ import tiremain from "../assets/tiremain.png";
 import QRCode from "react-qr-code";
 import check from "../assets/check.png";
 import f2 from "../assets/f3.jpg";
-import gift from "../assets/gift.png";
+import gift from "../assets/Knorr_gift.png";
+// import gift from "../assets/gift.png";
 import { CiLogout } from "react-icons/ci";
 
 import knorrbg from "../assets/knorr_bg.png";
@@ -116,10 +117,10 @@ export default function Home() {
             borderBottomRightRadius: "50%",
             backgroundColor: "#ED1C24",
             // LC
-            backgroundImage: `url(${lcbg.src})`,
+            // backgroundImage: `url(${lcbg.src})`,
             // Knorr
             // Correct way to set background image
-            // backgroundImage: `url(${knorrbg.src})`, // Correct way to set background image
+            backgroundImage: `url(${knorrbg.src})`, // Correct way to set background image
             backgroundSize: "cover", // Optional: to cover the entire div
             backgroundPosition: "center", // Optional: center the image
             backgroundRepeat: "no-repeat",
@@ -137,16 +138,16 @@ export default function Home() {
         </div>
       </div>
       
-      <div className="md:flex md:mt-36 mt-10 justify-between items-center md:w-full relative ">
+      <div className="md:flex md:mt-36 mt-20 justify-between items-center md:w-full relative ">
         <div className="md:w-2/5 flex justify-center p-2 relative z-10">
           {/* <Image
             className="md:h-72 md:w-72 h-40 w-40 object-contain shadow-xl"
             src={qrCodeValue}
             alt="qr-code"
           /> */}
-          <div className="w-2/4 h-auto ">
+            <div className="w-32 mx-2 h-auto flex items-center justify-center">
             <Image src={gift} alt="gift" />
-          </div>
+            </div>
           {qrCodeValue && (
             <QRCode
               value={qrCodeValue}
@@ -160,7 +161,7 @@ export default function Home() {
             <thead className="rounded-2xl overflow-hidden bg-slate-800 border border-slate-50">
               <tr className="text-center ">
                 <th className="px-4 py-2 p-2 text-xl text-white font-semibold md:w-3/12 border border-slate-50 ">
-                  Retsol Services Experiential Stations
+                 Stations
                 </th>{" "}
                 <th className="px-4 py-2 p-2 text-xl  text-white font-semibold md:w-9/12 border border-slate-50">
                   Status

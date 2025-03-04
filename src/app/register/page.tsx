@@ -55,9 +55,9 @@ export default function Home() {
       style={{
 
         // LC
-        backgroundImage: `url(${LCbg.src})`, 
+        // backgroundImage: `url(${LCbg.src})`, 
         // Knorr
-        // backgroundImage: `url(${knorrbg.src})`,
+        backgroundImage: `url(${knorrbg.src})`,
         backgroundColor: "#fffef5",
       }}
     >
@@ -68,14 +68,15 @@ export default function Home() {
         //  set H to 60 for LC and md:bg to bg-center
         
         // LC
-        style={{ backgroundImage: `url(${LClogo.src})` }}
+        // style={{ backgroundImage: `url(${LClogo.src})` }}
         // Knorr
-        // style={{ backgroundImage: `url(${knorroverlay.src})` }}
+        style={{ backgroundImage: `url(${knorroverlay.src})` }}
       ></div>
 
       <div className="w-full flex justify-center items-center absolute md:top-60 top-56 p-6">
-        <form
-          className="p-7 text-center rounded-xl shadow-4xl w-96 bg-[#182e78]"
+        <form 
+        // #182e78
+          className="p-7 text-center rounded-xl shadow-4xl w-96 bg-[#008641]"
           onSubmit={handleSubmit}
         >
           <label className="block mb-2 font-medium text-white text-3xl">
