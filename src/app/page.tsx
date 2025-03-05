@@ -15,7 +15,7 @@ import tiremain from "../assets/tiremain.png";
 import QRCode from "react-qr-code";
 import check from "../assets/check.png";
 import f2 from "../assets/f3.jpg";
-import gift from "../assets/Knorr_gift.png";
+import gift from "../assets/gift.png";
 // import gift from "../assets/gift.png";
 import { CiLogout } from "react-icons/ci";
 
