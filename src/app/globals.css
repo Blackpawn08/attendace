@@ -14,9 +14,9 @@ body {
   color: black;
 
   /*Lady's Choice  */
-  /* background: #146aad; */
+  background: #146aad;
   /* Knorr Background */
-  background: #008641;
+  /* background: #008641; */
 }
 
 @layer utilities {
