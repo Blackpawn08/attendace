@@ -116,10 +116,10 @@ export default function Home() {
             borderBottomRightRadius: "50%",
             backgroundColor: "#ED1C24",
             // LC
-            // backgroundImage: `url(${lcbg.src})`,
+            backgroundImage: `url(${lcbg.src})`,
             // Knorr
             // Correct way to set background image
-            backgroundImage: `url(${knorrbg.src})`, // Correct way to set background image
+            // backgroundImage: `url(${knorrbg.src})`, // Correct way to set background image
             backgroundSize: "cover", // Optional: to cover the entire div
             backgroundPosition: "center", // Optional: center the image
             backgroundRepeat: "no-repeat",
